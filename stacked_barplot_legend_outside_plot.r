@@ -30,7 +30,16 @@ dev.off()
 
 
 
+
 #tl.cex=0.5,tl.srt=40
+#AFAIK, with base graphics, you can only ask for 0/90° orientation of labels on x- or y-axis (see the las parameter in par()). However, with lattice or ggplot2 you can do it.
+
+#Here is an example with lattice::barchart():
+
+tt <- table(sample(LETTERS[1:6], 100, rep=T))
+library(lattice)
+barchart(tt, horiz=F, 
+         scales=list(x=list(rot=45, labels=paste("Fancy label", 1:6))))
 
 
 
